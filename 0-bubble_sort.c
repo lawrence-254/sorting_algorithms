@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "sort.h"
+
 /**
  * bubble_sort - a function that sorts an array using bubble sort
  * @array: the array to be sorted
@@ -9,21 +11,26 @@
  */
 void bubble_sort(int *array, size_t size)
 {
-	size_t x, y;
-	int z;
+	int y;
+	size_t x;
+	bool sorted = false;
 
 	if (array == NULL || size < 2)
 		return;
 
-	for (x = 0; x < (size - 1); x++)
+	while(sorted == false)
 	{
-		for (y = 0; y < (size - 1); y++)
+		sorted = true;
+
+		for (x = 0; x < (size - 1); x++)
 		{
-			if (array[y] > array[y + 1])
+			if (array[x] > array[x + 1])
 			{
-				z = array[y];
-				array[y] = array[y + 1];
-				array[y + 1] = z;
+				y = array[x];
+				array[x] = array[x + 1];
+				array[x + 1] = y;
+				print_array(array, size);
+				sorted = false;
 			}
 		}
 	}
