@@ -3,7 +3,7 @@
 #include "sort.h"
 /**
  * insertion_sort_list - sorts a list in ascending order using insertion.
- * @list - the linked list in question.
+ * @list: the linked list in question.
  * Return: sorted list in ascending order.
  */
 void insertion_sort_list(listint_t **list)
@@ -12,12 +12,12 @@ void insertion_sort_list(listint_t **list)
 
 	if (list == NULL || *list == NULL || (*list)->next == NULL)
 		return;
-	
+
 	for (iter = (*list)->next; iter != NULL; iter = tmp)
 	{
 		tmp = iter->next;
 		insert = iter->prev;
-		
+
 		while (insert != NULL && iter->n < insert->n)
 		{
 			iter->next = insert;
